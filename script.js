@@ -33,7 +33,7 @@ async function start() {
     container.append(image);
     canvas = faceapi.createCanvasFromMedia(image);
     container.append(canvas);
-    const displaySize = { width: (this).width, height: auto }
+    const displaySize = { width: image.width, height: image.height }
     faceapi.matchDimensions(canvas, displaySize);
     const detections = await faceapi.detectAllFaces(image).withFaceLandmarks().withFaceDescriptors();
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
